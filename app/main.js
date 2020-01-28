@@ -21,6 +21,7 @@ let processWin = null
 let microbreakWins = null
 let breakWins = null
 let aboutWin = null
+let preferencesWin = null
 let settingsWin = null
 let tutorialWin = null
 let welcomeWin = null
@@ -643,7 +644,7 @@ function showAboutWindow () {
     y: displaysY(),
     resizable: false,
     backgroundColor: settings.get('mainColor'),
-    title: i18next.t('main.aboutStretchly', { version: app.getVersion() }),
+    title: i18next.t('preferences.title'),
     webPreferences: {
       nodeIntegration: true
     }
@@ -651,6 +652,29 @@ function showAboutWindow () {
   aboutWin.loadURL(modalPath)
   aboutWin.on('closed', () => {
     aboutWin = null
+  })
+}
+
+function showPreferencesWindow () {
+  if (preferencesWin) {
+    preferencesWin.show()
+    return
+  }
+  const modalPath = `file://${__dirname}/preferences.html`
+  preferencesWin = new BrowserWindow({
+    autoHideMenuBar: true,
+    icon: `${__dirname}/images/windowIcon.png`,
+    x: displaysX(),
+    y: displaysY(),
+    backgroundColor: settings.get('mainColor'),
+    title: i18next.t('main.aboutStretchly', { version: app.getVersion() }),
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
+  preferencesWin.loadURL(modalPath)
+  preferencesWin.on('closed', () => {
+    preferencesWin = null
   })
 }
 
@@ -810,6 +834,11 @@ function getTrayMenu () {
     label: i18next.t('main.settings'),
     click: function () {
       showSettingsWindow()
+    }
+  }, {
+    label: i18next.t('main.preferences'),
+    click: function () {
+      showPreferencesWindow()
     }
   })
 

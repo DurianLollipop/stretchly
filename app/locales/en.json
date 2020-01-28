@@ -39,7 +39,8 @@
     "break": "break",
     "nextBreakFollowing": "\nNext break following {{count}} more microbreak",
     "nextBreakFollowing_plural": "\nNext break following {{count}} more microbreaks",
-    "notificationStatus": "\nIn Do Not Disturb mode"
+    "notificationStatus": "\nIn Do Not Disturb mode",
+    "preferences": "Preferences"
   },
   "break": {
     "postpone": "…wait for a bit",
@@ -60,6 +61,9 @@
     "tutorial": "tutorial",
     "latestVersion": "the latest version:",
     "checking": "checking…"
+  },
+  "preferences": {
+    "title": "Stretchly Preferences"
   },
   "settings": {
     "settings": "Settings",
